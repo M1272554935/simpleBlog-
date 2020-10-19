@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mtw.blog_vue.mapper.A_LJoinMapper" >
+    <sql id="BASE_TABLE">
+        article_label
+    </sql>
+
+
+    <select id="getList" resultType="com.mtw.blog_vue.pojo.dto.Art_LabDto">
+        SELECT article.aid,label.lname
+        FROM article_label article
+        LEFT JOIN blog_label label ON article.lid = label.lid
+        WHERE  article.aid = #{aid, jdbcType=INTEGER}
+    </select>
+
+</mapper>
